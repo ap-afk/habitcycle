@@ -16,7 +16,7 @@ const AddHabit = () => {
 
     try {
       const res = await fetch(
-        'http://localhost:3000/api/users/habits/create',
+        'https://habitcycle.onrender.com/api/users/habits/create',
         {
           method: 'POST',
           credentials: 'include', // 🍪 IMPORTANT

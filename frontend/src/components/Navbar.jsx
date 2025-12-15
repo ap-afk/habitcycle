@@ -23,7 +23,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await fetch("http://localhost:3000/api/users/logout", {
+      await fetch("https://habitcycle.onrender.com/api/users/logout", {
         method: "POST",
         credentials: "include",
       });

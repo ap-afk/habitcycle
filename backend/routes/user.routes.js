@@ -37,8 +37,8 @@ router.post('/register', async (req, res) => {
         // Set JWT in cookie
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,   // set to true on production HTTPS
-            sameSite: "lax",
+            secure: true,   // set to true on production HTTPS
+            sameSite: "none",
             maxAge: 7 * 24 * 60 * 60 * 1000
         });
 
@@ -74,8 +74,8 @@ router.post('/login', async (req, res) => {
         // Set cookie
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,   // true for production HTTPS
-            sameSite: "lax",
+            secure: true,   // true for production HTTPS
+            sameSite: "none",
             maxAge: 7 * 24 * 60 * 60 * 1000
         });
 

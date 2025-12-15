@@ -13,7 +13,7 @@ const Home = () => {
     streak: 0,
     badges: [],
   });
-
+  const backendurl = 'https://habitcycle.onrender.com';
   const [showPopup, setShowPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
 
@@ -24,7 +24,7 @@ const Home = () => {
 
   const fetchHabits = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/users/habits", {
+      const res = await fetch(`${backendurl}/api/users/habits`, {
         credentials: "include",
       });
       const data = await res.json();
@@ -39,7 +39,7 @@ const Home = () => {
   const fetchPointsHistory = async () => {
     try {
       const res = await fetch(
-        "http://localhost:3000/api/users/points/history",
+        `${backendurl}/api/users/points/history`,
         { credentials: "include" }
       );
       const data = await res.json();
@@ -51,7 +51,7 @@ const Home = () => {
 
   const fetchStats = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/users/stats", {
+      const res = await fetch(`${backendurl}/api/users/stats`, {
         credentials: "include",
       });
       const data = await res.json();
@@ -71,7 +71,7 @@ const Home = () => {
 
   const handleDone = async (habitId) => {
     try {
-      const res = await fetch("http://localhost:3000/api/users/points/add", {
+      const res = await fetch(`${backendurl}/api/users/points/add`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -108,7 +108,7 @@ const Home = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:3000/api/users/habits/${habitId}`,
+        `${backendurl}/api/users/habits/${habitId}`,
         {
           method: "DELETE",
           credentials: "include",

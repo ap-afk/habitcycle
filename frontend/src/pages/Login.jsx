@@ -8,7 +8,7 @@ export default function Login() {
         email: "",
         password: ""
     });
-
+    const backendurl = 'https://habitcycle.onrender.com';
     const [message, setMessage] = useState("");
     const [loading, setLoading] = useState(false);
 
@@ -23,7 +23,7 @@ export default function Login() {
 
         try {
             const res = await axios.post(
-                "http://localhost:3000/api/users/login",
+                `${backendurl}/api/users/login`,
                 form,
                 { withCredentials: true }
             );

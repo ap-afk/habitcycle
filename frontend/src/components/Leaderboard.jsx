@@ -8,7 +8,7 @@ const Leaderboard = () => {
     const fetchLeaderboard = async () => {
       try {
         const res = await fetch(
-          "http://localhost:3000/api/users/leaderboard",
+          "https://habitcycle.onrender.com/api/users/leaderboard",
           { credentials: "include" }
         );
         const data = await res.json();

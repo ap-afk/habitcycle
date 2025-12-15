@@ -1,4 +1,3 @@
-// src/context/AuthContext.jsx
 import { createContext, useEffect, useState } from "react";
 import api from "../api/axios";
 
@@ -9,13 +8,9 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api.get("api/users/profile")
-      .then(res => {
-        setUser(res.data);
-      })
-      .catch(() => {
-        setUser(null);
-      })
+    api.get("/api/users/profile")
+      .then(res => setUser(res.data))
+      .catch(() => setUser(null))
       .finally(() => setLoading(false));
   }, []);
 

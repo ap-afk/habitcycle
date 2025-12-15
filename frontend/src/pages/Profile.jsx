@@ -7,7 +7,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       const res = await fetch(
-        "http://localhost:3000/api/users/user/profile",
+        "https://habitcycle.onrender.com/api/users/user/profile",
         { credentials: "include" }
       );
       const data = await res.json();
