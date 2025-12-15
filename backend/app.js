@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 import cors from 'cors';
 app.use(cors({
-    origin: 'http://localhost:5173', // frontend URL
+    origin: 'https://habitcycle.vercel.app/', // frontend URL
     credentials: true
 }));  
 import userRoutes from './routes/user.routes.js';

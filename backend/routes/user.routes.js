@@ -320,8 +320,8 @@ router.get("/leaderboard", auth, async (req, res) => {
 router.post("/logout", (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
-    secure: false, // true in production (HTTPS)
-    sameSite: "lax",
+    secure: true, // true in production (HTTPS)
+    sameSite: "none",
   });
 
   res.status(200).json({ message: "Logged out successfully" });
