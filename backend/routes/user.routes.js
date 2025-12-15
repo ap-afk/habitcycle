@@ -7,6 +7,7 @@ import auth from '../middlewares/auth.middleware.js';
 import Habit from '../models/habit.model.js';
 const JWT_SECRET = process.env.JWT_SECRET;
 
+
 // REGISTER
 router.post('/register', async (req, res) => {
     try {
