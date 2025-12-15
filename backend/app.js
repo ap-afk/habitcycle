@@ -6,11 +6,29 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-import cors from 'cors';
-app.use(cors({
-    origin: 'https://habitcycle.vercel.app/', // frontend URL
-    credentials: true
-}));  
+import cors from "cors";
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://habitcycle.vercel.app"
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // allow requests with no origin (like mobile apps or curl)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+  
 import userRoutes from './routes/user.routes.js';
 
 app.use('/api/users', userRoutes);
