@@ -30,7 +30,7 @@ export default function Login() {
 
             setMessage("Login successful!");
 
-            setTimeout(() => navigate("/home"), 300); // Redirect to home
+            setTimeout(() => navigate("/home"), 500); // Redirect to home
         } catch (err) {
             setMessage(err.response?.data?.error || "Login failed");
         }
